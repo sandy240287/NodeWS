@@ -1,0 +1,17 @@
+extends layout
+
+block content
+	div(ng-controller='itemListCtrl')
+		table
+			tr
+				th Brand
+				th Title
+				th List Price
+				th Item Image
+			tr(ng-repeat='item in itemData.Items.Item')
+				td {{item.ItemAttributes.Brand}}
+				td 
+					a(href='{{item.DetailPageURL}}') {{item.ItemAttributes.Title}}
+				td {{item.ItemAttributes.ListPrice.FormattedPrice}}
+				td
+					img(src='{{item.SmallImage.URL}}', width='100')
